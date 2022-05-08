@@ -20,7 +20,7 @@ class CreateLawdatasTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('phone');
             $table->string('address');
-            $table->integer('gender');
+            $table->string('gender');
             $table->integer('the_age')->nullable();
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class Lawdata extends Model
         'address',
         'phone',
         'gender',
-        'the_age'
+     //   'the_age'
      
 
     ];
