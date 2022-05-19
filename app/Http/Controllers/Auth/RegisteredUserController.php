@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Civi;
+use App\Models\Customer;
 use App\Models\datauser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -12,8 +14,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use App\Models\Lawdata;
+use App\Models\Role;
 use App\Models\twouser;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Schema;
 use DB;
+use Str;
 
 class RegisteredUserController extends Controller
 {
@@ -26,7 +33,7 @@ class RegisteredUserController extends Controller
     {
         return view('auth.register');
     }
-
+    
     /**
      * Handle an incoming registration request.
      *
@@ -42,14 +49,22 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role_id' => ['required'],
-
-
-
+         
+         //  'id_number' =>['required', 'string', 'min:11','exists:civis','id_number'],
         ]);
-        
+   
+        $civi = Civi::where('id_number', $request->id_number)->exists();
+       
+        if (!$civi) {
+            return redirect()->back()->withErrors('customet dosn,t exsist');
+      
+        }
+
+     
         DB::beginTransaction();
 
         try {
+
 
             $user = User::create([
                 'name' => $request->name,
@@ -59,7 +74,7 @@ class RegisteredUserController extends Controller
             ]);
 
             $user->attachRole($request->role_id);
-            if ($request->role_id == 'Lawyer') {
+            if ($request->role_id == '2') {
                 Lawdata::create([
                     'user_id' => $user->id,
                     'address' => $request->address,
@@ -67,24 +82,26 @@ class RegisteredUserController extends Controller
                     'gender' => $request->gender,
                     'the_age' => $request->the_age,
                 ]);
-            } elseif ($request->role_id == 'user') {
-                    datauser::create([
+            } elseif ($request->role_id == '3') {
+                Customer::create([
                     'user_id' => $user->id,
                     'address' => $request->address,
                     'phone' => $request->phone,
                     'gender' => $request->gender,
                     'the_age' => $request->the_age,
+//                    'civi_id'=> $civi->id,
+                    'customer_number' => Str::random(14),
                     ]);
-            } elseif ($request->role_id == 'user2') {
-                twouser::create([
-                    'user_id' => $user->id,
-                    'address' => $request->address,
-                    'phone' => $request->phone,
-                    'gender' => $request->gender,
-                    'the_age' => $request->the_age,
+            // } elseif ($request->role_id == 'user2') {
+            //     twouser::create([
+            //         'user_id' => $user->id,
+            //         'address' => $request->address,
+            //         'phone' => $request->phone,
+            //         'gender' => $request->gender,
+            //         'the_age' => $request->the_age,
 
-                    ]);
-            } {
+            //         ]);
+            // } {
                 # code...
             }
 

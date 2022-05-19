@@ -2,14 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="{{ asset('js/app.js')  }}" defer></script>
-    
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <title>Document</title>
+   
 </head>
+
 <body>
+
     <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -21,7 +26,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}"  x-data="{role_id: 2}">
+        <form method="POST" action="{{ route('register') }}" x-data="{role_id: 2}">
             @csrf
 
             <!-- Name -->
@@ -59,11 +64,11 @@
 
  <!-- select Option Rol type -->
               <div class="mt-4">
-                <x-label   value="{{ __('Register as:') }}" />
-                <select name="role_id"  class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                <option value="Lawyer">Lawyer</option>
-                <option value="user">user</option>
-                <option value="user2">user2</option>
+                <x-label   value="{{ __('Register as:') }}"/>
+                <select  name="role_id" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                <option value="2" >Lawyer</option>
+                <option value="3">user</option>  
+               
                 </select>
              <!-- address -->
              <div class="mt-4">
@@ -71,7 +76,14 @@
 
                 <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required  />
             </div>
+                <!-- id_number -->
+                <div class="mt-4">
+                    <x-label for="id_number" :value="__('id_number')" />
 
+                    <x-input id="id_number" class="block mt-1 w-full" type="text" name="id_number" :value="old('id_number')" required  />
+                </div>
+                 <!-- id_number user -->
+              
               <!-- phone -->
               <div class="mt-4">
                 <x-label for="phone" :value="__('phone')" />
@@ -86,7 +98,7 @@
             <div class="mt-4">
                 <x-label for="the age" :value="__('the age')"/>
 
-                <x-input id="the_age" class="block mt-1 w-full" type="text" name="the_age" :value="old('the_age')" required  />
+                <x-input id="the_age" class="block mt-1 w-full" type="number" name="the_age" :value="old('the_age')" required  />
             </div>
         </div>
         

@@ -6,7 +6,7 @@ use App\Models\Civi;
 use Illuminate\Http\Request;
 use DB;
 use Symfony\Component\Console\Input\Input;
-
+use Illuminate\Support\Facades\Auth;
 class CiviController extends Controller
 {
     /**
@@ -37,20 +37,18 @@ return view('create');
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-'name' =>'required'
-        ]);
-
-$civi=Civi::where('name',$request->input('name'))->first();
-if ($civi==null)
+  
+      
+//$civi=Civi::where('name',$request->input('name'))->first();
+if (  Auth::user()->customers()->where('customer_number', $request->customer_number)->exists()
+==null)
  {
      return view('create');
 }
 
        
 
-
+return view('create');
 
     }
 

@@ -77,7 +77,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(twouser::class);
     }
-    public function Customer()
+    public function Customers()
     {
         return $this->hasMany(Customer::class);
     }

@@ -12,4 +12,5 @@ class Civi extends Model
 protected $fillable=['name'];
 
 
+
 }

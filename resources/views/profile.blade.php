@@ -63,7 +63,10 @@
 		        		<input type="phone" name="the_age" class="form-control" placeholder="the_age" value="{{auth()->user()->the_age }}"/>
 		        	</div>
 				
-					
+					<div>
+						<x-input id="customer_number" class="block mt-1 w-full" type="text" name="customer_number" :value="old('customer_number')"
+							required autofocus />
+					</div>
 					
 					
 		        	<div class="form-group mb-3">

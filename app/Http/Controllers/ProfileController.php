@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lawdata;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Customer;
 use Hash;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +26,6 @@ class ProfileController extends Controller
     
         $lawuser = Lawdata::where('user_id', auth()->user()->id);
     
-
-
    return view('profile', compact('data'));
   //return view($data);
 
@@ -63,6 +62,9 @@ class ProfileController extends Controller
             'gender'=>$validated['gender'],
             'the_age'=>$validated['the_age']
         ]);
+
+
+        $document_fields = Customer::where('customer_number', $request->customer_number)->exists();
 
         return redirect('profile')->with('success', 'Profile Data Updated');
 

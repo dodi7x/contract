@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
+    protected $guarded = [];
     use HasFactory;
     /**
      * The roles thahe Document
@@ -17,5 +18,13 @@ class Document extends Model
     {
         return $this->belongsToMany('documents_id');
     }
-    
+    /**
+     * Get all of the comments for the Document
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function document_fields()
+    {
+        return $this->hasMany(document_fields::class);
+    }
 }

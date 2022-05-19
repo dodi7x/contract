@@ -18,13 +18,14 @@ class CreateCustomersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('address');
+           //$table->unsignedBigInteger('civi_id');
+           // $table->foreign('civi_id')->references('id')->on('civis')->onDelete('cascade');
             $table->string('phone');
-            $table->string('first_party');
-            $table->string('second_party');
-            $table->string('two_phone');
-            $table->string('number_id');
-            $table->string('signature');
+            $table->string('address');
+            $table->string('gender');
+            $table->integer('the_age')->nullable();
+            $table->string('customer_number');
+            $table->string('signature')->nullable();
             $table->timestamps();
         });
     }

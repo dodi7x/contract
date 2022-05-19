@@ -18,12 +18,12 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ url('create') }}" method="POST">
+                    <form method="post" action="{{ route('create') }}">
                         @csrf
 
                         <div class="form-group mb-3">
-                            <label for=""> Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <label for=""> customer_number</label>
+                            <input type="text" name="customer_number" class="form-control">
                         </div>
                    
                         <div class="form-group mb-3">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModeContractsTable extends Migration
+class CreateDocumentFieldsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateModeContractsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mode_contracts', function (Blueprint $table) {
+        Schema::create('document_fields', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('write_form');
-            $table->unsignedBigInteger('documents_id');
-            $table->foreign('documents_id')->references('id')->on('documents')->onDelete('cascade');
+            $table->unsignedBigInteger('document_id');
+            $table->foreign('document_id')->references('id')->on('documents')->onDelete('cascade');
+            $table->string('field');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateModeContractsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mode_contracts');
+        Schema::dropIfExists('document_fields');
     }
 }

@@ -4,7 +4,7 @@
             {{ __('Dashboard for user') }}
         </h2>
     </x-slot>
-
+    @csrf
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -12,7 +12,9 @@
                     You're logged user  in!<br>
                     your name is: {{ Auth::user()->name }} <br>
                     your email address:{{ Auth::user()->email }}
+             
                 </div>
+          
             </div>
         </div>
     </div>

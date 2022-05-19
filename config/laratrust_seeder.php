@@ -12,25 +12,25 @@ return [
     'truncate_tables' => true,
 
     'roles_structure' => [
-        'admin' => [
+        '1' => [ //admin
             'users' => 's,d',
             'payments' => 'c,e,u,d,a,s',
             'profile' => 'a,e,u,s'
         ],
-        'Lawyer' => [
+        '2' => [ //lawyer
             'users' => 's',
             'profile' => 'a,e,u,s'
         ],
-        'user' => [
+        '3' => [//user
             'profile' => 'a,e,u,s',
         ],
-        'user2' =>[
+       /* 'user2' =>[
             'profile' => 'a,e,u,s',
         ],
         '42' =>[
             'profile' => 'a,e,u,s',
         ],
-
+*/
 
     ],
 
