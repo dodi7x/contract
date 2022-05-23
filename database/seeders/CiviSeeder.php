@@ -21,6 +21,7 @@ class CiviSeeder extends Seeder
         'address' => 'sanar',
         'Profession'=>'Student',
         'law_number' => '0',
+        
 ]);
 
         Civi::create([
@@ -30,8 +31,8 @@ class CiviSeeder extends Seeder
         'address' => 'aljanina',
         'Profession'=>'employee',
         'law_number' => '0',
-]);
-
+        ]);
+        
         Civi::create([
         'name' => 'Tommy Lucas',
         'date' => '1985-1-2',
@@ -39,6 +40,7 @@ class CiviSeeder extends Seeder
         'address' => 'Khartoum',
         'Profession'=>'Lawyer',
         'law_number' => '4253',
+        
 ]);
 
         Civi::create([
@@ -48,6 +50,7 @@ class CiviSeeder extends Seeder
        'address' => 'aldamir',
        'Profession'=>'Lawyer',
        'law_number' => '3321',
+       
 ]);
 
 

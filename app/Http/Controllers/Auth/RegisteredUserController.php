@@ -44,21 +44,18 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+           // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+           'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role_id' => ['required'],
-            'civi_id'=>[ 'string', 'id_number', 'max:11', 'unique:civis'],
+            'id_number'=>['required']
            //'id_number' =>['required', 'string', 'min:11',],
         ]);
-        $civi = Customer::with('Civi')->get();
-        $civi = Civi::where('id_number', $request->id_number)->exists();
        
-        if (!$civi) {
-            return redirect()->back()->withErrors('customet dosn,t exsist');
-      
-        }
+         $civi = Civi::where('id_number', $request->id_number)->first();
+   
 
      
         DB::beginTransaction();
@@ -82,15 +79,30 @@ class RegisteredUserController extends Controller
                     'gender' => $request->gender,
                     'the_age' => $request->the_age,
                 ]);
+                
             } elseif ($request->role_id == '3') {
-                Customer::create([
+                //return $request->id_number;
+                 
+                $civi = Civi::where('id_number',$request->id_number)->first();
+                   if (!$civi) {
+                   return 'no id number in civis'; 
+                }
+                if ($civi->user_id) {
+                    return 'there user register idnumber ';
+                }
+               $customer= Customer::create([
+
                     'user_id' => $user->id,
                     'address' => $request->address,
                     'phone' => $request->phone,
                     'gender' => $request->gender,
                     'the_age' => $request->the_age,
-                    //'civi_id'=> $civi->id,
+                  //  'civi_id'=> $civi->id,
                     'customer_number' => Str::random(14),
+                    ]);
+                    $civi->update  ([
+                        'user_id' => $customer->id,
+
                     ]);
             // } elseif ($request->role_id == 'user2') {
             //     twouser::create([

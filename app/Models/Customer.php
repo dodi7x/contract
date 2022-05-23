@@ -15,10 +15,11 @@ class Customer extends Model
     ];
     public function Contract()
     {
-        return $this->hasMany(Contract::class);
+        return $this->hasone(Contract::class);
     }
-    public function Civi()
+
+    public function civi()
     {
-        return $this->hasone(Civi::class);
+        return $this->hasOne(Civi::class,'user_id');
     }
 }
