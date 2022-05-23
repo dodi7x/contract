@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
 });*/
 
 Route::get('/dashboard/myprofile', [DashboardController::class, 'myprofile'])->name('dashboard.profile');
+Route::get('/chose', [DashboardController::class, 'chose'])->name('chose');
+
 require __DIR__ . '/auth.php';
 
 // Route for contract 
@@ -62,7 +64,7 @@ Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::post('profile/edit_validation', [ProfileController::class, 'edit_validation'])->name('profile.edit_validation');
 
-//Route::get('type', [App\Http\Controllers\contractController::class, 'index'])->name('type');
+Route::get('type', [App\Http\Controllers\contractController::class, 'index'])->name('type');
 
 Route::post('type/store', [App\Http\Controllers\contractController::class, 'store'])->name('type.store');
 

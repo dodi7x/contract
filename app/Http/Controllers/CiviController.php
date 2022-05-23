@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Civi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Symfony\Component\Console\Input\Input;
@@ -16,7 +17,7 @@ class CiviController extends Controller
      */
     public function index()
     {
-return view('create');
+return view('profile');
     }
 
     /**
@@ -34,21 +35,20 @@ return view('create');
      *unique
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */
+     *///$civi=Civi::where('name',$request->input('name'))->first();
     public function store(Request $request)
     {
   
-      
-//$civi=Civi::where('name',$request->input('name'))->first();
-if (  Auth::user()->customers()->where('customer_number', $request->customer_number)->exists()
-==null)
- {
-     return view('create');
-}
+        $civi = User::where('customer_number', $request->customer_number)->exists();  
 
+if (!$civi)
+ {
+    return redirect()->back()->withErrors('dosn,t exsist');
+ 
+}
        
 
-return view('create');
+return view('profile');
 
     }
 

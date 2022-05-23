@@ -53,14 +53,14 @@ class ProfileController extends Controller
             'email' => $validated['email'],
             'password' => $validated['password'],
             'gender'=>$validated['gender'],
-            'the_age'=>$validated['the_age'],
+           // 'the_age'=>$validated['the_age'],
         ]);
 
         $lawuser->update([
             'address' => $validated['address'],
             'phone' => $validated['phone'],
             'gender'=>$validated['gender'],
-            'the_age'=>$validated['the_age']
+          //  'the_age'=>$validated['the_age']
         ]);
 
 
