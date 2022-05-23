@@ -19,6 +19,6 @@ class Customer extends Model
     }
     public function Civi()
     {
-        return $this->belongsTo(Civi::class , 'civi_id');
+        return $this->hasone(Civi::class);
     }
 }

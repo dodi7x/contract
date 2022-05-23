@@ -18,6 +18,8 @@ class CreateCustomersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('civi_id');
+            $table->foreign('civi_id')->references('id')->on('civis')->onDelete('cascade');
             $table->string('phone');
             $table->string('address');
             $table->string('gender');

@@ -16,8 +16,8 @@ class CreateCivisTable extends Migration
       Schema::create('civis', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            //$table->unsignedBigInteger('user_id');
-          //  $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+          //  $table->unsignedBigInteger('user_id');
+         //   $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->date('date');
             $table->string('id_number')->unique;

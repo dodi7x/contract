@@ -49,10 +49,10 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role_id' => ['required'],
-         
-         //  'id_number' =>['required', 'string', 'min:11','exists:civis','id_number'],
+            'civi_id'=>[ 'string', 'id_number', 'max:11', 'unique:civis'],
+           //'id_number' =>['required', 'string', 'min:11',],
         ]);
-   
+        $civi = Customer::with('Civi')->get();
         $civi = Civi::where('id_number', $request->id_number)->exists();
        
         if (!$civi) {
@@ -89,7 +89,7 @@ class RegisteredUserController extends Controller
                     'phone' => $request->phone,
                     'gender' => $request->gender,
                     'the_age' => $request->the_age,
-//                    'civi_id'=> $civi->id,
+                    //'civi_id'=> $civi->id,
                     'customer_number' => Str::random(14),
                     ]);
             // } elseif ($request->role_id == 'user2') {
