@@ -29,13 +29,17 @@ Route::get('/Home', function () {
     return view('Home');
 });
 
+//Route::get('system', function () {
+////    return 'welcome';
+//    return view('dashboard.index');
+//});
 //Route::get('/dashboard', function () {
 // return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
+//Route::group(['middleware' => ['auth']], function () {
+//    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//});
 
 // for Lywer
 Route::group(['middleware' => ['auth', 'role:Lawyer']], function () {
@@ -43,7 +47,7 @@ Route::group(['middleware' => ['auth', 'role:Lawyer']], function () {
 });
 require __DIR__ . '/auth.php';
 
-// Route for contract 
+// Route for contract
 
 
 
