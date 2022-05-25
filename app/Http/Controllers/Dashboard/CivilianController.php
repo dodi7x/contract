@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Civi;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CivilianController extends Controller
 {
@@ -84,9 +85,9 @@ class CivilianController extends Controller
      * @param  \App\Models\Civi  $civi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Civi $civi)
+    public function edit(Civi $civilian)
     {
-        //
+        return view('dashboard.civilian.edit', compact('civilian'));
     }
 
     /**
@@ -96,9 +97,31 @@ class CivilianController extends Controller
      * @param  \App\Models\Civi  $civi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Civi $civi)
+    public function update(Request $request, Civi $civilian)
     {
-        //
+        $rules = [];
+
+        $rules += [
+            'name'          => 'required',
+            'date_of_birth'          => 'required',
+            'id_number' => ['required', Rule::unique('civis')->ignore($civilian->id)],
+            'address'       => 'required',
+            'Profession'    => 'required'
+        ];
+
+        $request->validate($rules);
+
+        $request_data = $request->all();
+
+//        $request_data['phone'] = array_filter($request->all());
+
+        $civilian->update($request_data);
+
+        return redirect()->route('dashboard.civilian.index')->with([
+            'message'       => __('site.added_successfully'),
+            'alert-type'    => 'success']);
+
+        return back();
     }
 
     /**

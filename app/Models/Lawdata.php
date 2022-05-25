@@ -17,11 +17,12 @@ class Lawdata extends Model
 
     protected $fillable = [
         'user_id',
+        'civi_id',
         'address',
         'phone',
         'gender',
         'the_age'
-     
+
 
     ];
     /*  public function User()

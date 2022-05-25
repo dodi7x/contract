@@ -44,9 +44,14 @@
                     <td>{{$civilian->id_number}}</td>
                     <td>{{$civilian->address}}</td>
                     <td>{{$civilian->Profession}}</td>
-                    <td>{{$civilian->created_at->format('Y/m/d H:i')}}</td>
+                    <td>{{$civilian->created_at->format('Y/m/d')}}</td>
+{{--                    <td>{{$civilian->created_at->format('Y/m/d H:i')}}</td>--}}
 {{--                    <td><span class="badge badge-success">Delivered</span></td>--}}
-                    <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                    <td><a href="{{route('dashboard.civilian.edit',$civilian->id)}}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-edit"></i>
+                            @lang('edit')
+                        </a>
+                    </td>
                 </tr>
                     @endforeach
                 </tbody>

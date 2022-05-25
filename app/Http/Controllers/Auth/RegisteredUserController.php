@@ -67,7 +67,6 @@ class RegisteredUserController extends Controller
 
             }else{
 
-
                 $user = User::create([
                     'name' => $request->name,
                     'email' => $request->email,
@@ -76,6 +75,7 @@ class RegisteredUserController extends Controller
                 ]);
 
                 $user->attachRole($request->role_id);
+
                 if ($request->role_id == 'Lawyer') {
                     Lawdata::create([
                         'user_id' => $user->id,
