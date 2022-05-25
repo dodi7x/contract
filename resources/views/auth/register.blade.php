@@ -6,20 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="{{ asset('js/app.js')  }}" defer></script>
-    
+
     <title>Document</title>
+    <style>
+        .alert-error
+        {
+            color: #ffffff;
+            background: #f02626b3;
+            margin: 10px 2px;
+            text-align: center;
+            padding: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 10px;
+
+        }
+    </style>
 </head>
 <body>
+
+
     <x-guest-layout>
     <x-auth-card>
+
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
 
+{{--        <div class="alert-danger">--}}
+            @include('dashboard.includes.partials.flash')
+{{--        </div>--}}
+
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
 
         <form method="POST" action="{{ route('register') }}"  x-data="{role_id: 2}">
             @csrf
@@ -63,7 +85,6 @@
                 <select name="role_id"  class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                 <option value="Lawyer">Lawyer</option>
                 <option value="user">user</option>
-                <option value="user2">user2</option>
                 </select>
              <!-- address -->
              <div class="mt-4">
@@ -79,6 +100,11 @@
                 <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required  />
             </div>
             <div class="mt-4">
+                <x-label for="id_number" :value="__('site.id_number')" />
+
+                <x-input id="id_number" class="block mt-1 w-full" type="text" name="id_number" :value="old('id_number')" required  />
+            </div>
+            <div class="mt-4">
                 <x-label for="gender" :value="__('gender')"/>
 
                 <x-input id="gender" class="block mt-1 w-full" type="text" name="gender" :value="old('gender')" required  />
@@ -89,13 +115,13 @@
                 <x-input id="the_age" class="block mt-1 w-full" type="text" name="the_age" :value="old('the_age')" required  />
             </div>
         </div>
-        
-      
-       
-   
 
-              
-                            
+
+
+
+
+
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
@@ -108,6 +134,14 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+    <script>
+        $(function () {
+            $('#session-alert').fadeTo(5000, 500).slideUp(500, function () {
+                $('#session-alert').slideUp(500);
+            });
+        });
+    </script>
 </body>
 </html>
 

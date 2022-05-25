@@ -17,13 +17,13 @@ class CreateCivisTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('name');
-            $table->date('date');
-            $table->string('id_number');
+            $table->string('date_of_birth');
+            $table->integer('id_number');
             $table->string('address');
             $table->string('Profession');
-            $table->integer('law_number');
+            $table->integer('law_number')->nullable();
             $table->timestamps();
-        }); 
+        });
     }
 
     /**

@@ -149,13 +149,23 @@
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                     Activity Log
                 </a>
-{{--                @if(auth()->user()->hsaRole('admin'))--}}
-{{--                <a class="dropdown-item" href="#">--}}
-{{--                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>--}}
-{{--                    Activity Log--}}
-{{--                </a>--}}
-{{--                @endif--}}
+
+
                 <div class="dropdown-divider"></div>
+{{--       --}}
+
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal"
+                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                    {{ __('site.Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+
+{{--        --}}
                 <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout

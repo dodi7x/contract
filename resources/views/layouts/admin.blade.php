@@ -11,6 +11,11 @@
     <title>Admin - Dashboard</title>
     <link href="{{asset('assets/dashboard/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/dashboard/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/dashboard/vendor/select2/dist/css/select2.min.css')}}" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="{{asset('assets/dashboard/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/dashboard/vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/dashboard/vendor/clock-picker/clockpicker.css')}}" rel="stylesheet">
     <link href="{{asset('assets/dashboard/css/ruang-admin.min.css')}}" rel="stylesheet">
     @if(app()->getLocale() == 'ar')
     <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
@@ -70,6 +75,14 @@
 <script src="{{asset('assets/dashboard/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/dashboard/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('assets/dashboard/vendor/select2/dist/js/select2.min.js')}}"></script>
+<!-- Bootstrap Datepicker -->
+<script src="{{asset('assets/dashboard/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<!-- Bootstrap Touchspin -->
+<script src="{{asset('assets/dashboard/vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js')}}"></script>
+<!-- ClockPicker -->
+<script src="{{asset('assets/dashboard/vendor/clock-picker/clockpicker.js')}}"></script>
 <script src="{{asset('assets/dashboard/js/ruang-admin.min.js')}}"></script>
 <script src="{{asset('assets/dashboard/vendor/chart.js/Chart.min.js')}}"></script>
 <script src="{{asset('assets/dashboard/js/demo/chart-area-demo.js')}}"></script>

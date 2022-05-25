@@ -72,7 +72,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(datauser::class);
     }
-    
+    public function civi()
+    {
+        return $this->hasMany(Civi::class);
+    }
+
     public function twouser()
     {
         return $this->hasMany(twouser::class);

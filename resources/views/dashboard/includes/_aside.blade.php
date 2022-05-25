@@ -20,7 +20,15 @@
         <a class="nav-link " href="{{route('dashboard.users.index')}}">
             <i class="far fa-fw fa-window-maximize"></i>
             <span>
-                    @lang('users')
+                    @lang('site.users')
+            </span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{route('dashboard.civilian.index')}}">
+            <i class="far fa-fw fa-window-maximize"></i>
+            <span>
+                    @lang('site.Record_civilian')
             </span>
         </a>
     </li>

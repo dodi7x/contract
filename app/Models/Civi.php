@@ -9,7 +9,10 @@ class Civi extends Model
 {
     use HasFactory;
 
-protected $fillable=['name'];
+protected $fillable=['name','date_of_birth','id_number','address','Profession',];
 
-
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
