@@ -11,6 +11,10 @@ body
 {
     font-family: Tajawal !important;
 }
+footer.footer.py-5
+{
+    direction: ltr;
+}
 a.btn.btn-sm.bg-gradient-info.mb-0.me-1.mt-2.mt-md-0,
 .btn-primary, .btn.bg-gradient-success, btn.bg-gradient-info
 {

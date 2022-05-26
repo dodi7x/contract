@@ -6,7 +6,7 @@
 
 @section('header')
     <header class="header-2">
-        <div class="page-header min-vh-75 relative" style="background-image: url('./assets/img/bg2.jpg')">
+        <div class="page-header min-vh-75 relative" style="background-image: url('{{asset('assets/website/assets/img/contracts-back.jpg')}}')">
             <span class="mask bg-gradient-primary opacity-4"></span>
             <div class="container">
                 <div class="row">
@@ -89,7 +89,7 @@
                     </div>
                 </section>
                 <!-- -------- START Features w/ icons and text on left & gradient title and text on right -------- -->
-                <section class="py-9">
+                <section class="py-5">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 my-auto">
@@ -102,13 +102,16 @@
 {{--                                    <i class="fas fa-arrow-right text-sm ms-1"></i>--}}
 {{--                                </a>--}}
                             </div>
-                            <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+                            <div class="main-font col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0 py-6">
                                 <div class="p-3 info-horizontal">
                                     <div class="icon icon-shape  bg-gradient-primary shadow-primary text-center">
-                                        <i class="fas fa-ship opacity-10"></i>
+{{--                                        <i class="fas fa-ship opacity-10"></i>--}}
+                                        <i class="fa fa-file-export opacity-10"></i>
                                     </div>
                                     <div class="description ps-3">
-                                        <p class="mb-0">It becomes harder for us to give others a hand. <br> We get our heart broken by people we love.</p>
+                                        <p class="mb-0">  الحفاظ على العقود من التلف او الضياع . <br>
+                                            توفير الوقت
+                                        </p>
                                     </div>
                                 </div>
 
@@ -117,7 +120,9 @@
                                         <i class="fas fa-handshake opacity-10"></i>
                                     </div>
                                     <div class="description ps-3">
-                                        <p class="mb-0">As we live, our hearts turn colder. <br>Cause pain is what we go through as we become older.</p>
+                                        <p class="mb-0">توفير الوسائل التي تمكن الطرفين للتعاقد عن بعد. <br>
+                                            	الطرفين يريدون التعاقد بينهما يجب ان يكونوا حاضرين عند المحامي
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="p-3 info-horizontal">
@@ -125,7 +130,19 @@
                                         <i class="fas fa-hourglass opacity-10"></i>
                                     </div>
                                     <div class="description ps-3">
-                                        <p class="mb-0">When we lose family over time. <br> What else could rust the heart more over time? Blackgold.</p>
+                                        <p class="mb-0">التعاقد عبر الانترنت في أي وقت واي زمن  <br>
+                                            لا يجب حضور شاهدين
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="p-3 info-horizontal">
+                                    <div class="icon icon-shape  bg-gradient-primary shadow-primary text-center">
+                                        <i class="fas fa-hourglass opacity-10"></i>
+                                    </div>
+                                    <div class="description ps-3">
+                                        <p class="mb-0">يمكن تعاقد بدون الشهود . <br>
+                                           	إذا غاب أحد الطرفين او الشهود يتم التعاقد
+                                        </p>
                                     </div>
                                 </div>
                             </div>
