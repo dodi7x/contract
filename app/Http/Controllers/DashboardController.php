@@ -11,14 +11,14 @@ class DashboardController extends Controller
     {
         if (Auth::user()->hasRole('user')) {
             return view('userdah');
-        } elseif (Auth::user()->hasRole('Lawyer')) {
+            } elseif (Auth::user()->hasRole('Lawyer')) {
             return view('Lawyerdash');
         } elseif (Auth::user()->hasRole('admin')) {
             return view('dashboard');
         }elseif (Auth::user()->hasRole('user2')) {
-            return view('user2');        
-        }          
-        
+            return view('user2');
+        }
+
     }
     public function myprofile()
     {

@@ -45,6 +45,10 @@ Route::get('/Home', function () {
 Route::group(['middleware' => ['auth', 'role:Lawyer']], function () {
     Route::get('/dashboard/myprofile', [DashboardController::class, 'myprofile'])->name('dashboard.profile');
 });
+
+Route::group(['middleware' => ['auth', 'role:user']], function () {
+    Route::get('/home', [DashboardController::class, 'myprofile'])->name('dashboard.profile');
+});
 require __DIR__ . '/auth.php';
 
 // Route for contract

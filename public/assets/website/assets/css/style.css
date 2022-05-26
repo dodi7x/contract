@@ -1,0 +1,35 @@
+@font-face{
+    font-family: Tajawal;
+    /* src :url('../fonts/Tajawal/Tajawal-Medium.ttf'); */
+    src :url('../fonts/Cairo/Cairo-Regular.ttf');
+}
+body
+{
+    font-family: main-font !important;
+}
+.main-font
+{
+    font-family: Tajawal !important;
+}
+a.btn.btn-sm.bg-gradient-info.mb-0.me-1.mt-2.mt-md-0,
+.btn-primary, .btn.bg-gradient-success, btn.bg-gradient-info
+{
+    direction: rtl;
+    position: relative;
+    right: 290px;
+}
+@media (max-width: 767.98px) {
+
+    .btn-primary, .btn.bg-gradient-success, btn.bg-gradient-info
+    {
+        direction: rtl;
+        position: relative;
+        right: 0px;
+    }
+
+}
+nav.navbar.navbar-expand-lg.blur.border-radius-xl.top-0.z-index-fixed.shadow.position-absolute.my-3.py-2.start-0.end-0.mx-4
+{
+    direction: rtl;
+}
+

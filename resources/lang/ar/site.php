@@ -65,6 +65,8 @@ return[
     'status' => 'الحالة',
     'show' => 'عرض',
     'date' => 'التاريخ',
+    'register' => 'انشاء حساب',
+    'login' => 'تسجيل دخول',
     'Stop' => 'توقف هناك حقول مطلوبة',
     'There_are_no_previous_requests_to_display' => 'لا يوجد طلبات السابقة لعرضها',
     'previous_orders' => 'الطلبات السابقة',

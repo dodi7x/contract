@@ -125,6 +125,35 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-        return redirect(RouteServiceProvider::HOME);
+        if (auth()->user()->hasRole('admin')) {
+            return redirect(RouteServiceProvider::DASHBOARD);
+            return redirect()->route('dashboard.index');
+
+        }elseif (auth()->user()->hasRole('Lawyer')){
+
+            return redirect(RouteServiceProvider::LAWYER);
+
+        } elseif (auth()->user()->hasRole('user')){
+
+            return redirect(RouteServiceProvider::HOME);
+        }
+
+    }
+
+    protected function redirectTo()
+    {
+        if (auth()->user()->hasRole('admin')) {
+
+            return redirect()->route('dashboard.index');
+
+        }elseif (auth()->user()->hasRole('Lawyer')){
+
+            return redirect()->route('dashboard.index');
+
+        } elseif (auth()->user()->hasRole('user')){
+
+            return  redirect()->route('dashboard.index');
+        }
+        return '/home';
     }
 }
