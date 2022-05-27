@@ -3,7 +3,7 @@
         <div class="sidebar-brand-icon">
             <img src="{{asset('assets/dashboard/img/logo/logo2.png')}}">
         </div>
-        <div class="sidebar-brand-text mx-3">Admin - Panel</div>
+        <div class="sidebar-brand-text mx-3">العقود الالكترونية </div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
@@ -15,7 +15,7 @@
     <div class="sidebar-heading">
         Features
     </div>
-{{--    @if(auth()->user()->hsaRole('admin'))--}}
+    @if(auth()->user()->hasRole('admin'))
     <li class="nav-item">
         <a class="nav-link " href="{{route('dashboard.users.index')}}">
             <i class="far fa-fw fa-window-maximize"></i>
@@ -32,7 +32,7 @@
             </span>
         </a>
     </li>
-{{--    @endif--}}
+    @endif
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
            aria-controls="collapseForm">

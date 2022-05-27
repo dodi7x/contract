@@ -42,6 +42,14 @@ Route::get('/Home', function () {
 //});
 
 // for Lywer
+Route::group(
+    ['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+
+//    'middleware' => ['role:admin']],
+    Route::prefix('users')->name('users.')->middleware(['auth'])->group( function () {
+        Route::resource('/', UserController::class);
+    });
+});
 Route::group(['middleware' => ['auth', 'role:Lawyer']], function () {
     Route::get('/dashboard/myprofile', [DashboardController::class, 'myprofile'])->name('dashboard.profile');
 });

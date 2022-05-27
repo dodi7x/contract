@@ -126,8 +126,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
         if (auth()->user()->hasRole('admin')) {
-            return redirect(RouteServiceProvider::DASHBOARD);
-            return redirect()->route('dashboard.index');
+                return redirect(RouteServiceProvider::DASHBOARD);
 
         }elseif (auth()->user()->hasRole('Lawyer')){
 
@@ -137,6 +136,7 @@ class RegisteredUserController extends Controller
 
             return redirect(RouteServiceProvider::HOME);
         }
+        return redirect(RouteServiceProvider::DASHBOARD);
 
     }
 
